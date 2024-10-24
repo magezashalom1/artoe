@@ -25,8 +25,13 @@ SECRET_KEY = "django-insecure-d#x@0&se!ccl=i*qzla=%*p#b_x#b&g#6u1@igit2o1r#x+r^x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = [
+    'artoe.store',             # Custom domain without 'www'
+    'www.artoe.store',         # Custom domain with 'www'
+    'artoe.onrender.com',      # Render's default domain for your app
+
+]
 
 # Application definition
 
@@ -116,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
