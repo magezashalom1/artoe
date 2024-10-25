@@ -13,13 +13,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-d#x@0&se!ccl=i*qzla=%*p#b_x#b&g#6u1@igit2o1r#x+r^x"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # Change to False in production
 
 ALLOWED_HOSTS = [
-    'artoe.store',             # Custom domain without 'www'
-    'www.artoe.store',         # Custom domain with 'www'
-    'artoe.onrender.com',      # Render's default domain for your app
-    'localhost',               # Local development
+    'localhost',              # Local development
+    '127.0.0.1',             # Local development
+    'www.artoe.store',        # Custom domain with 'www'
+    'artoe.store',            # Custom domain without 'www'
+    'artoe.onrender.com',     # Render's default domain for your app
 ]
 
 # Application definition
@@ -45,11 +46,13 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",  # For serving static files in production
 ]
 
-# In Django settings.py
+# CORS settings to allow frontend to access backend
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Replace with your frontend's URL in production
+    "http://localhost:3000",           # Development frontend
+    "https://artoe.onrender.com",       # Render deployment URL
+    "https://www.artoe.store",          # Custom domain (if applicable)
+    "https://artoe.store",              # Non-www custom domain
 ]
-
 
 ROOT_URLCONF = "artoe.urls"
 
@@ -104,6 +107,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'  # Ensure this has a leading slash
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory to collect static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static')]  # Path for React static files
 
 # Use WhiteNoise to serve static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
