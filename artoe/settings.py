@@ -59,7 +59,7 @@ ROOT_URLCONF = "artoe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],  # You can specify additional template directories here
+        "DIRS": [os.path.join(BASE_DIR, 'frontend', 'build')],  # Path to the React app's build directory
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
