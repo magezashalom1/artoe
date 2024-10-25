@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
-from products.views import SneakerListView  # Import the list view if using as home
+from products.views import SneakerListView  # Import the sneaker list view
+from homepage.views import homepage  # Import the homepage view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', SneakerListView.as_view(), name='home'),  # Home redirects to sneaker list
-    path('products/', include('products.urls')),  # Products app URLs
-] 
+    path('', homepage, name='home'),  # Home points to the homepage view
+    path('products/', SneakerListView.as_view(), name='sneaker_list'),  # Products app URLs
+]
+
+
 
