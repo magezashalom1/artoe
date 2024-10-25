@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">  <!-- Add your favicon here -->
     <title>ArToe - Coming Soon</title>
     <style>
         body {
-            background-image: url('your-background-image-url.jpg'); /* Replace with your image URL */
+            background-image: url('{% static "images/background.jpg" %}');  /* Update this with your static file reference */
             background-size: cover;
             color: white;
             text-align: center;
@@ -15,8 +16,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            margin: 0;  /* Reset default margin */
         }
     </style>
+    {% load static %}  <!-- Load static files -->
 </head>
 <body>
     <h1>Website Coming Soon</h1>
