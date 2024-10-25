@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'artoe.store',             # Custom domain without 'www'
     'www.artoe.store',         # Custom domain with 'www'
     'artoe.onrender.com',      # Render's default domain for your app
+    'http://localhost:8000/',
 
 ]
 
