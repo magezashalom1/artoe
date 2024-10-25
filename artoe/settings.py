@@ -96,7 +96,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'  # Ensure this has a leading slash
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'artoe/static')]  # Update to the correct static folder path
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'artoe/static')]  # Path for static files in the project
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory to collect static files
 
 # Default primary key field type
@@ -105,6 +105,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Media files (for file uploads, if applicable)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-
