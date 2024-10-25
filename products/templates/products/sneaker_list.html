@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
+    <title>Sneaker List</title>
 </head>
 
 <body>
     <h1>Sneakers</h1>
     <ul>
-        {% for product in products %}
-            <li>{{ product.name }} - ${{ product.price }}</li>
+        {% for sneaker in sneakers %}
+            <li>{{ sneaker.name }} - ${{ sneaker.price }}</li>
+        {% empty %}
+            <li>No sneakers available.</li>
         {% endfor %}
     </ul>
 </body>
-
 </html>

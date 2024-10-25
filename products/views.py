@@ -5,7 +5,7 @@ from django.views.generic import ListView
 # Class-based view for listing sneakers
 class SneakerListView(ListView):
     model = Sneaker
-    template_name = 'products/sneaker_list.html'  # Corrected path
+    template_name = 'products/sneaker_list.html'  # Correct path
     context_object_name = 'sneakers'  # This will be the variable in the template
 
 # Function-based view for sneaker details
