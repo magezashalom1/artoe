@@ -19,8 +19,9 @@ ALLOWED_HOSTS = [
     'artoe.store',             # Custom domain without 'www'
     'www.artoe.store',         # Custom domain with 'www'
     'artoe.onrender.com',      # Render's default domain for your app
-    'localhost',
+    'localhost',               # Local development
 ]
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -30,8 +31,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "products",
-    "homepage",
+    "rest_framework",  # Ensure this is included for Django REST Framework
+    "api",             # Add your new API app here
 ]
 
 MIDDLEWARE = [
@@ -42,7 +43,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # For serving static files in production
 ]
 
 ROOT_URLCONF = "artoe.urls"
@@ -50,7 +51,7 @@ ROOT_URLCONF = "artoe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [],  # You can specify additional template directories here
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -68,7 +69,7 @@ WSGI_APPLICATION = "artoe.wsgi.application"
 # Database
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.sqlite3",  # Use a different DB for production
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
@@ -100,12 +101,12 @@ STATIC_URL = '/static/'  # Ensure this has a leading slash
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'artoe/static')]  # Path for static files in the project
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory to collect static files
 
+# Use WhiteNoise to serve static files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Media files (for file uploads, if applicable)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
