@@ -45,6 +45,12 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",  # For serving static files in production
 ]
 
+# In Django settings.py
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Replace with your frontend's URL in production
+]
+
+
 ROOT_URLCONF = "artoe.urls"
 
 TEMPLATES = [
