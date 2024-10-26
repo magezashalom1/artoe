@@ -1,4 +1,4 @@
-# Django settings for artoe project.
+# Django settings for ArToe project.
 
 from pathlib import Path
 import os
@@ -17,7 +17,7 @@ DEBUG = True  # Change to False in production
 
 ALLOWED_HOSTS = [
     'localhost',              # Local development
-    '127.0.0.1',             # Local development
+    '127.0.0.1',              # Local development
     'www.artoe.store',        # Custom domain with 'www'
     'artoe.store',            # Custom domain without 'www'
     'artoe.onrender.com',     # Render's default domain for your app
@@ -31,13 +31,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",  # Ensure this is included for Django REST Framework
-    "api",             # Add your new API app here
+    "rest_framework",         # Django REST Framework for API
+    "api",                    # Add your API app here
+    "corsheaders",            # Include CORS if using cross-origin requests
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",   # Ensure CORS middleware is added before CommonMiddleware
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -59,7 +61,7 @@ ROOT_URLCONF = "artoe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'frontend', 'build')],  # Path to the React app's build directory
+        "DIRS": [BASE_DIR / "Staticfiles/build"],  # Path to the React app's build directory
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -105,9 +107,12 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'  # Ensure this has a leading slash
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory to collect static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', 'build', 'static')]  # Path for React static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "Staticfiles/build/static",
+    BASE_DIR / "Staticfiles",
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment on Render
 
 # Use WhiteNoise to serve static files in production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
