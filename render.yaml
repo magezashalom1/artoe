@@ -1,7 +1,7 @@
 version: 1
 services:
   - type: web
-    name: ArToe 
+    name: ArToe
     env: python
     plan: starter
     buildCommand: |
@@ -11,4 +11,5 @@ services:
       python manage.py collectstatic --noinput && \
       python manage.py migrate
     runtime: python
-    pythonVersion: "3.11" 
+    pythonVersion: "3.11"
+    startCommand: python manage.py runserver 0.0.0.0:8000  # Use this command to start your Django server
