@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './SneakerList.css'; // Import the CSS file
 
 const SneakerList = () => {
     const [sneakers, setSneakers] = useState([]); // Initialize state for sneakers
@@ -19,11 +20,14 @@ const SneakerList = () => {
     }, []);
 
     return (
-        <div>
+        <div className="sneaker-list">
             <h1>Sneakers</h1>
             <ul>
                 {sneakers.map(sneaker => (
-                    <li key={sneaker.id}>{sneaker.name} - ${sneaker.price}</li>
+                    <li key={sneaker.id}>
+                        <span>{sneaker.name}</span>
+                        <span className="price">${sneaker.price}</span>
+                    </li>
                 ))}
             </ul>
         </div>
