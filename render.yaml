@@ -13,6 +13,4 @@ services:
       python manage.py migrate
     runtime: python
     pythonVersion: "3.11"
-    startCommand: |
-      which gunicorn || echo "Gunicorn not found"
-      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
+    startCommand: python -m gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
