@@ -12,4 +12,4 @@ services:
       python manage.py migrate
     runtime: python
     pythonVersion: "3.11"
-    startCommand: python manage.py runserver 0.0.0.0:8000  # Use this command to start your Django server
+    startCommand: gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
