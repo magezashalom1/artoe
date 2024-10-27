@@ -2,9 +2,13 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Sneaker, Order, OrderItem
 
+class OrderItemInline(admin.TabularInline):
+    model = OrderItem
+    extra = 1  # Allows adding a new OrderItem inline
+
 @admin.register(Sneaker)
 class SneakerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'size', 'main_image_preview')  # Display essential details of each sneaker with image preview
+    list_display = ('name', 'price', 'size', 'main_image_preview')  # Display sneaker details with image preview
     search_fields = ('name', 'short_description')                   # Search by name or description
     list_filter = ('size',)                                         # Filter sneakers by size
     readonly_fields = ('main_image_preview',)                       # Make main image preview read-only in the admin
@@ -39,10 +43,6 @@ class OrderAdmin(admin.ModelAdmin):
         # Display each item and its quantity within the order
         return ", ".join([f"{item.sneaker.name} ({item.quantity})" for item in obj.orderitem_set.all()])
     get_ordered_items.short_description = 'Ordered Items'
-
-class OrderItemInline(admin.TabularInline):
-    model = OrderItem
-    extra = 1  # Allows adding a new OrderItem inline
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
