@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage'; // Correct import path for HomePage
 import SneakerList from './components/SneakerList'; // Import SneakerList component
 import Products from './pages/Products'; // Import Products page
@@ -10,15 +10,15 @@ import ContactUs from './pages/ContactUs'; // Correct import path for ContactUs 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={HomePage} /> {/* Render HomePage on the root path */}
-        <Route path="/sneakers" component={SneakerList} /> {/* Route for SneakerList */}
-        <Route path="/products" component={Products} /> {/* Route for Products */}
-        <Route path="/about" component={AboutUs} /> {/* Route for AboutUs */}
-        <Route path="/faqs" component={FAQs} /> {/* Route for FAQs */}
-        <Route path="/contact" component={ContactUs} /> {/* Route for ContactUs */}
+      <Routes>
+        <Route path="/" element={<HomePage />} /> {/* Render HomePage on the root path */}
+        <Route path="/sneakers" element={<SneakerList />} /> {/* Route for SneakerList */}
+        <Route path="/products" element={<Products />} /> {/* Route for Products */}
+        <Route path="/about" element={<AboutUs />} /> {/* Route for AboutUs */}
+        <Route path="/faqs" element={<FAQs />} /> {/* Route for FAQs */}
+        <Route path="/contact" element={<ContactUs />} /> {/* Route for ContactUs */}
         {/* Add other routes as needed */}
-      </Switch>
+      </Routes>
     </Router>
   );
 }
