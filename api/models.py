@@ -6,11 +6,15 @@ class Sneaker(models.Model):
     long_description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     main_image = models.ImageField(upload_to='sneakers/main/')
-    other_images = models.JSONField()  # Store additional image URLs or paths
-    size = models.CharField(max_length=10)  # Size format for sneaker
+    additional_image_1 = models.ImageField(upload_to='sneakers/extra/', blank=True, null=True)
+    additional_image_2 = models.ImageField(upload_to='sneakers/extra/', blank=True, null=True)
+    additional_image_3 = models.ImageField(upload_to='sneakers/extra/', blank=True, null=True)
+    additional_image_4 = models.ImageField(upload_to='sneakers/extra/', blank=True, null=True)
+    size = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
+
 
 class Order(models.Model):
     STATUS_CHOICES = [
