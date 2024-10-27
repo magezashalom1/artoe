@@ -1,5 +1,5 @@
 # Django settings for ArToe project.
-
+# Django settings for ArToe project.
 
 from pathlib import Path
 import os
@@ -100,8 +100,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles/build/static",
-    BASE_DIR / "staticfiles",
+    BASE_DIR / "staticfiles/build/static",  # Path to additional static files
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment on Render
 

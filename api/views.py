@@ -1,6 +1,11 @@
+from django.shortcuts import render
 from rest_framework import generics
 from .models import Sneaker, Order
 from .serializers import SneakerSerializer, OrderSerializer
+
+# Serve the React app's homepage
+def home(request):
+    return render(request, 'index.html')
 
 class SneakerList(generics.ListCreateAPIView):
     queryset = Sneaker.objects.all()
