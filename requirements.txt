@@ -6,3 +6,4 @@ psycopg2-binary>=2.9,<3.0  # PostgreSQL adapter (if using PostgreSQL)
 djangorestframework  
 Pillow>=9.0
 whitenoise
+gunicorn>=20.0,<21.0

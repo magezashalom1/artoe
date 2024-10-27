@@ -1,9 +1,14 @@
 version: 1
 services:
   - type: web
-    name: your-service-name  # Replace with your service name
-    env: node
+    name: ArToe 
+    env: python
     plan: starter
-    buildCommand: npm install --prefix frontend && npm run build --prefix frontend && pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
-    runtime: node
-    nodeVersion: "16.x"  # or your desired version
+    buildCommand: |
+      pip install -r requirements.txt && \
+      npm install --prefix frontend && \
+      npm run build --prefix frontend && \
+      python manage.py collectstatic --noinput && \
+      python manage.py migrate
+    runtime: python
+    pythonVersion: "3.11" 
