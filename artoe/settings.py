@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",         # Django REST Framework for API
     "api",                    # Add your API app here
-
 ]
 
 MIDDLEWARE = [
@@ -61,7 +60,7 @@ ROOT_URLCONF = "artoe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "Staticfiles/build"],  # Path to the React app's build directory
+        "DIRS": [BASE_DIR / "staticfiles" / "build"],  # Path to the React app's build directory
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -109,8 +108,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles/build/static",
-    BASE_DIR / "staticfiles",
+    BASE_DIR / "staticfiles" / "build" / "static",  # React build static files
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment on Render
 
