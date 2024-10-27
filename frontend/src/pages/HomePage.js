@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FeaturedProducts from '../components/FeaturedProducts';
-import './App.css'; // Adjusted to use App.css
+import '../App.css'; // Adjusted to go one level up to the src directory
 
 const HomePage = () => {
     return (
