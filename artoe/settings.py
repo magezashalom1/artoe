@@ -109,8 +109,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "Staticfiles/build/static",
-    BASE_DIR / "Staticfiles",
+    BASE_DIR / "staticfiles/build/static",
+    BASE_DIR / "staticfiles",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment on Render
 
