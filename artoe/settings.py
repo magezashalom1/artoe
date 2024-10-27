@@ -1,5 +1,6 @@
 # Django settings for ArToe project.
 
+
 from pathlib import Path
 import os
 
@@ -38,7 +39,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",   # Ensure CORS middleware is added before CommonMiddleware
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -47,20 +47,12 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",  # For serving static files in production
 ]
 
-# CORS settings to allow frontend to access backend
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",           # Development frontend
-    "https://artoe.onrender.com",       # Render deployment URL
-    "https://www.artoe.store",          # Custom domain (if applicable)
-    "https://artoe.store",              # Non-www custom domain
-]
-
 ROOT_URLCONF = "artoe.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "staticfiles" / "build"],  # Path to the React app's build directory
+        "DIRS": [BASE_DIR / "staticfiles/build"],  # Path to the React app's build directory
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -108,7 +100,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles" / "build" / "static",  # React build static files
+    BASE_DIR / "staticfiles/build/static",
+    BASE_DIR / "staticfiles",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"  # For deployment on Render
 
