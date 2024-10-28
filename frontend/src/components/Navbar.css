@@ -42,16 +42,19 @@
 }
 
 .navbar-menu ul li a {
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
   color: black;
   font-size: 1rem;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.25rem; /* This can be removed if not needed */
 }
 
-.navbar-menu ul li a:hover,
+.navbar-menu ul li a:hover {
+  color: #ff036c; /* Change color on hover */
+}
+
+/* Active link color */
 .navbar-menu ul li a.active {
-  color: #ff036c;
-  border-bottom: 2px solid #ff036c;
+  color: #ff036c; /* Active link color */
 }
 
 .navbar-icons {
@@ -87,7 +90,7 @@
       left: 0;
       height: calc(100vh - 5rem);
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.8); /* Ensure mobile menu is also transparent */
+      background-color: rgba(0, 0, 0, 0); /* Ensure mobile menu is also transparent */
       flex-direction: column;
       align-items: center;
       justify-content: center;
