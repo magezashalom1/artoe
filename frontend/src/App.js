@@ -6,10 +6,13 @@ import Products from './pages/Products'; // Import Products page
 import AboutUs from './pages/AboutUs'; // Correct import path for AboutUs page
 import FAQs from './pages/FAQs'; // Import FAQs page
 import ContactUs from './pages/ContactUs'; // Correct import path for ContactUs page
+import Navbar from './components/Navbar'; // Import Navbar component
+import './App.css'; // Import general styles
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} /> {/* Render HomePage on the root path */}
         <Route path="/sneakers" element={<SneakerList />} /> {/* Route for SneakerList */}
