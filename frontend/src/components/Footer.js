@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container">
                 <div className="f1">
                     <div className="logo">
-                        <img src="./images/logo3.png" alt="Logo" />
+                        <img src="./images/logo.png" alt="Logo" />
                     </div>
                     <h6>Sign Up for News and Promotions</h6>
                     <br /><br />
