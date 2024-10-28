@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FeaturedProducts from '../components/FeaturedProducts';
-import '../HomePage.css'; // Adjusted to go one level up to the src directory
-
+import '../App.css'; // Go up one more level if needed
 
 const HomePage = () => {
     return (
@@ -11,7 +10,7 @@ const HomePage = () => {
             <Navbar />
 
             <header>
-                <div className="container">
+                <div className="header-container">
                     <div className="info">
                         <div className="delivery">
                             <small><b>Free Delivery In Kigali</b></small>
@@ -49,7 +48,7 @@ const HomePage = () => {
                         your personal styles and preferences.
                     </p>
                     <img src="./images/fireshoes.png" alt="Fire Shoes" />
-                    <article>
+                    <article className="product-info">
                         <div className="info">
                             <h2>We recreate <br /> Your IDEAS & DESIGNS</h2>
                             <p>
@@ -64,20 +63,20 @@ const HomePage = () => {
                 </div>
             </section>
 
-            <FeaturedProducts /> {/* Featured Products Section */}
+            <FeaturedProducts />
 
             <section id="why-choose-us">
                 <div className="container">
                     <h2>Our Team</h2>
-                    <div className="head">
-                        <div className="left">
+                    <div className="team-head">
+                        <div className="team-left">
                             <h6 style={{ fontSize: 'larger', color: 'rgba(0, 0, 0, 0.372)' }}><b>SHALOM MAGEZA</b></h6>
                             <h5 style={{ fontSize: 'medium', color: 'rgba(0, 0, 0, 0.372)' }}>Founder & Artist</h5>
                             <h6 style={{ fontSize: 'larger', color: 'rgba(0, 0, 0, 0.372)' }}><b>SHEMA PATRICK</b></h6>
                             <h5 style={{ fontSize: 'medium', color: 'rgba(0, 0, 0, 0.372)' }}>Co-Founder & Developer</h5>
                         </div>
-                        <div className="right">
-                            <div className="image">
+                        <div className="team-right">
+                            <div className="team-image">
                                 <img src="./images/Stamp.png" alt="Team Stamp" />
                             </div>
                         </div>
@@ -85,11 +84,10 @@ const HomePage = () => {
                 </div>
             </section>
 
-            {/* FAQs Section */}
             <section id="faqs">
                 <div className="container">
                     <h2>Frequently Asked Questions</h2>
-                    <div className="content">
+                    <div className="faq-content">
                         <article>
                             <div className="icon"><i className="uil uil-plus"></i></div>
                             <div className="detail">
