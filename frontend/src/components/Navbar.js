@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Optional: If you want to style the navbar with CSS
+import { FaUserCircle, FaShoppingCart, FaBars } from 'react-icons/fa';
+import './Navbar.css';
 
 const Navbar = () => {
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const handleMenuToggle = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
         <nav className="navbar">
-            <div className="container">
-                <Link to="/" className="navbar-brand">ArToe</Link>
-                <ul className="navbar-menu">
-                    <li><Link to="/sneakers">Sneakers</Link></li>
-                    <li><Link to="/products">Products</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/faqs">FAQs</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                </ul>
+            <div className="navbar-container">
+                <div className="navbar-left">
+                    <Link to="/" className="navbar-logo">
+                        <img src="/images/logo.png" alt="ArToe Logo" />
+                    </Link>
+                </div>
+                <div className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+                    <ul>
+                        <li><Link to="/pages/Products">Sneakers</Link></li>
+                        <li><Link to="/pages/AboutUs">About Us</Link></li>
+                        <li><Link to="/pages/ContactUs">Contact</Link></li>
+                    </ul>
+                </div>
+                <div className="navbar-icons">
+                    <Link to="/profile"><FaUserCircle /></Link>
+                    <Link to="/cart"><FaShoppingCart /></Link>
+                    <button className="hamburger" onClick={handleMenuToggle}>
+                        <FaBars />
+                    </button>
+                </div>
             </div>
         </nav>
     );
