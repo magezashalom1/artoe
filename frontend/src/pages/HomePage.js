@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FeaturedProducts from '../components/FeaturedProducts';
-import '../App.css'; // Go up one more level if needed
+import './HomePage.css'; // Import HomePage-specific styles
 
 const HomePage = () => {
     return (
@@ -18,7 +18,7 @@ const HomePage = () => {
                         </div>
                         <h1>Cop Your IKEECI</h1>
                         <p>
-                            Acquire Your Own IKEECI From The Number #1 Brand In Town - Our Kicks Are Guaranteed To Give You Wings
+                            Acquire Your Own IKEECI From The Number #1 Brand In Town Our Kicks Are Guaranteed To Give You Wings
                         </p>
                         <div className="cta">
                             <a href="#" id="show-commercial-btn" className="btn btn-primary">See Product Samples</a>
@@ -72,7 +72,7 @@ const HomePage = () => {
                         <div className="team-left">
                             <h6 style={{ fontSize: 'larger', color: 'rgba(0, 0, 0, 0.372)' }}><b>SHALOM MAGEZA</b></h6>
                             <h5 style={{ fontSize: 'medium', color: 'rgba(0, 0, 0, 0.372)' }}>Founder & Artist</h5>
-                            <h6 style={{ fontSize: 'larger', color: 'rgba(0, 0, 0, 0.372)' }}><b>SHEMA PATRICK</b></h6>
+                            <h6 style={{ fontSize: 'larger', color: 'rgba(0, 0, 0, 0.372)' }}><b>SH P</b></h6>
                             <h5 style={{ fontSize: 'medium', color: 'rgba(0, 0, 0, 0.372)' }}>Co-Founder & Developer</h5>
                         </div>
                         <div className="team-right">
