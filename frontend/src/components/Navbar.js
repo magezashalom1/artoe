@@ -26,11 +26,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-icons">
-                    <Link to="/profile"><FaUserCircle /></Link>
-                    <Link to="/cart"><FaShoppingCart /></Link>
                     <button className="hamburger" onClick={handleMenuToggle}>
                         <FaBars />
                     </button>
+                    <Link to="/profile"><FaUserCircle /></Link>
+                    <Link to="/cart"><FaShoppingCart /></Link>
                 </div>
             </div>
         </nav>

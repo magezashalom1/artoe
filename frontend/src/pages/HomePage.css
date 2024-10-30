@@ -1,6 +1,6 @@
 :root {
   --color-primary: #ff036c;
-  --color-bg: #f0f0f0;
+  --color-bg: #dddddd;
   --color-text: #333;
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Montserrat', sans-serif;
@@ -13,91 +13,83 @@ body {
   padding: 0;
 }
 
+/* Ensure header is spaced below the navbar */
 header {
-  padding-top: 80px; /* Adds space to prevent overlap with navbar */
-  background-color: #fff;
-  padding: 40px 20px;
+  padding-top: 80px; /* Adjust as necessary to clear navbar */
+  background-color: transparent; /* Remove background color */
+  padding: 20px; /* Optional padding for spacing */
 }
 
+/* Header container */
 .header-container {
+  margin: 95px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Makes the layout responsive on smaller screens */
-  gap: 20px; /* Adds space between elements */
+  justify-content: space-evenly;
+  align-items: center; /* Align items in the center */
+  gap: 20px; /* Reduced gap for closer alignment */
 }
 
-.info {
-  flex: 1 1 50%; /* Takes up 50% of the container on larger screens */
-  padding: 20px;
-  text-align: left;
+/* Header Info */
+.header-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 10px; /* Padding between info and image */
 }
 
-.info h1 {
-  font-size: 2.5rem;
+.header-info h1 {
+  font-size: 10.5rem; /* Default font size for large screens */
   color: var(--color-primary);
-  font-family: var(--font-secondary);
-  margin: 10px 0;
 }
 
-.info p {
+.header-info p {
+  font-size: 1.2rem; /* Default font size for large screens */
   color: var(--color-text);
   line-height: 1.6;
-  margin: 15px 0;
 }
 
-.delivery {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--color-primary);
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.delivery i {
-  font-size: 1.2rem;
-}
-
-.cta .btn {
-  background-color: var(--color-primary);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.cta .btn:hover {
-  background-color: #ff437f;
-}
-
+/* Header Image - fixed dimensions */
 .header-image {
-  flex: 1 1 50%; /* Takes up 50% of the container on larger screens */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 600px; /* Max width for larger screens */
+  height: auto;
+  overflow: hidden;
 }
 
 .header-image img {
-  max-width: 20%; /* Allows the image to scale responsively */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header-container {
-      flex-direction: column; /* Stacks elements on smaller screens */
-      text-align: center;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align for visual balance */
   }
-  .info, .header-image {
-      flex: 1 1 100%; /* Full width on smaller screens */
-      padding: 0;
+
+  .header-image {
+    max-width: 80%; /* Image takes 80% of the screen width */
+    height: auto; /* Allows height to adjust proportionally */
   }
-  .header-image img {
-      max-width: 80%; /* Smaller image size on mobile */
+
+  .header-info h1 {
+    font-size: 2rem; /* Smaller font size for h1 on smaller screens */
+  }
+
+  .header-info p {
+    font-size: 1rem; /* Smaller font size for paragraph on smaller screens */
+  }
+  .header-container {
+    margin-top: 120px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
   }
 }

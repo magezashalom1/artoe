@@ -3,13 +3,13 @@
   position: fixed;
   top: 0;
   width: calc(100% - 2rem); /* Adjust for margin */
-  height: 5rem;
+  height: 3rem; /* Fixed height */
   background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
   border-radius: 15px; /* Border radius on all sides */
   margin: 1rem; /* Margin on all sides */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Space between items */
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-weight: bold;
@@ -21,24 +21,24 @@
   max-width: 1200px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between logo and icons */
   padding: 0 1rem;
 }
 
 .navbar-left .navbar-logo img {
-  height: 3rem;
+  height: 2rem;
 }
 
 .navbar-menu {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
+  display: flex; /* Flexbox for menu */
+  justify-content: flex-start; /* Align items to the left */
+  flex-grow: 1; /* Allow the menu to grow */
 }
 
 .navbar-menu ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 2rem; /* Spacing between items */
 }
 
 .navbar-menu ul li a {
@@ -62,11 +62,12 @@
   gap: 1.5rem;
   font-size: 1.5rem;
   color: black;
+  margin-left: auto; /* Ensure icons are aligned to the right */
 }
 
 /* Hamburger for Mobile */
 .hamburger {
-  display: none;
+  display: none; /* Hide by default */
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -74,45 +75,29 @@
 }
 
 @media (max-width: 768px) {
-  .navbar-container {
-      justify-content: space-between;
-  }
-
-  .navbar-left .navbar-logo {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-  }
-
   .navbar-menu {
-      position: fixed;
-      top: 5rem;
+      display: none; /* Hide the menu by default on mobile */
+      position: absolute;
+      top: 3.5rem; /* Position below navbar */
       left: 0;
-      height: calc(100vh - 5rem);
       width: 100%;
-      background-color: rgba(0, 0, 0, 0); /* Ensure mobile menu is also transparent */
+      background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
+      z-index: 999; /* Ensure it appears on top */
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      transition: transform 0.3s ease;
-      transform: translateY(-100%);
+      gap: 1rem; /* Spacing between items */
   }
 
   .navbar-menu.open {
-      transform: translateY(0);
-  }
-
-  .navbar-menu ul {
-      flex-direction: column;
-  }
-
-  .navbar-icons {
-      display: none;
+      display: flex; /* Show menu when open */
   }
 
   .hamburger {
-      display: block;
+      display: block; /* Show hamburger icon on mobile */
+  }
+
+  .navbar-icons {
+      display: none; /* Hide icons on mobile */
   }
 }
 
