@@ -1,4 +1,4 @@
-
+/* General Styles */
 body {
   background-color: var(--color-bg);
   font-family: var(--font-primary);
@@ -7,95 +7,117 @@ body {
 }
 
 header {
-  padding-top: 80px;
+  padding-top: 40px;
   background-color: transparent;
   padding: 20px;
 }
 
 .header-container {
-  margin: 95px;
+  margin: 65px;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row; /* Horizontal stacking by default */
+  justify-content: center;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-.header-info {
-  max-width: 50%;
-  flex: 1;
+/* Header Info and Image Styles */
+.header-info,
+.header-image {
+  flex-basis: 45%; /* Both boxes occupy about half of the container */
+  max-width: 600px; /* Maximum size to prevent overflow */
+  min-width: 300px; /* Minimum size to prevent excessive shrinking */
+  aspect-ratio: 1 / 1; /* Ensures a square shape */
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding-right: 20px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Header Info Content Styling */
+.header-info {
+  margin-top: 20px;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  text-align: left; /* Align text to the left on larger screens */
+  align-items: flex-start; /* Align content to the left */
+  margin-bottom: 20px;
 }
 
 .header-info h1 {
-  font-size: clamp(2.5rem, 8vw, 10.5rem); 
+  margin-left: 50px;
+  font-size: clamp(2.2rem, 5vw, 4rem); /* Responsive font size */
   color: var(--color-primary);
 }
 
-
 .header-info p {
-  font-size: clamp(1rem, 3vw, 1.5rem); 
+  margin-left: 50px;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
   color: var(--color-text);
   font-family: var(--font-secondary);
-}
-
-.header-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
-  max-height: 600px;
-  overflow: hidden;
-  border-radius: 10px;
 }
 
 .header-image .header-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
-@media (max-width: 768px) {
-  .header-container {
-    align-items: center;
-    max-width: 90%;
-    flex-direction: column;
-  }
-
-  .header-image {
-    max-width: 80%;
-    height: auto;
-  }
-
-  .header-info {
-    max-width: 80%;
-    text-align: center;
-    align-items: center;
-  }
-}
-
-
+/* Button Styling */
 .store-button {
+  margin-left: 50px;
   display: inline-block;
   background-color: var(--color-primary);
-  color: #fff; /* White text */
-  width: 200px; /* Fixed width */
-  padding: 10px 0; /* Adjusted padding for height */
-  font-size: 1rem;
+  color: #fff;
+  width: clamp(150px, 30%, 200px); /* Responsive button width */
+  padding: 10px 0;
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
   font-family: var(--font-secondary);
   text-align: center;
   border: none;
-  border-radius: 10px; /* Rounded edges */
-  text-decoration: none; /* Remove underline */
+  border-radius: 10px;
+  text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth hover transition */
-  margin-top: 20px; /* Space above button */
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
 .store-button:hover {
-  background-color: #b7004c; /* Slightly darker pink on hover */
+  background-color: #b7004c;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* Stacks vertically on mobile */
+    align-items: center;
+    margin: 20px;
+  }
+
+  .header-info,
+  .header-image {
+    max-width: 80%; /* Full width for mobile */
+    min-width: auto; /* Reset minimum width on mobile */
+    aspect-ratio: 1 / 1; /* Maintain square shape */
+  }
+
+  .header-info {
+    text-align: center; /* Center text on smaller screens */
+    align-items: center; /* Center content */
+    padding: 15px;
+  }
+
+  .header-info h1,
+  .header-info p,
+  .store-button {
+    margin-left: 0; /* Remove left margin on mobile */
+  }
+}
+
+
