@@ -43,6 +43,7 @@
 }
 
 .navbar-menu ul li a {
+  font-family: var(--font-secondary);
   text-decoration: none;
   color: black;
   font-size: 1rem;
@@ -67,9 +68,10 @@
   padding: 0.5rem 2rem;
   border-radius: 15px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   display: inline-block;
+  font-family: var(--font-secondary);
 }
 
 .signup-button:hover {
@@ -105,9 +107,5 @@
 
   .hamburger {
     display: block;
-  }
-
-  .navbar-icons {
-    margin-left: auto;
   }
 }

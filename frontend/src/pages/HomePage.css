@@ -1,10 +1,3 @@
-:root {
-  --color-primary: #ff036c;
-  --color-bg: #dddddd;
-  --color-text: #333;
-  --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Montserrat', sans-serif;
-}
 
 body {
   background-color: var(--color-bg);
@@ -37,9 +30,10 @@ header {
 }
 
 .header-info h1 {
-  font-size: 10.5rem;
+  font-size: clamp(2.5rem, 8vw, 10.5rem); 
   color: var(--color-primary);
 }
+
 
 .header-info p {
   font-size: 1.2rem;
@@ -95,11 +89,12 @@ header {
 
 .store-button {
   display: inline-block;
-  background-color: #ff036c; /* Pink color */
+  background-color: var(--color-primary);
   color: #fff; /* White text */
-  padding: 10px 10px; /* Padding for size */
+  width: 200px; /* Fixed width */
+  padding: 10px 0; /* Adjusted padding for height */
   font-size: 1rem;
-  font-family: var(--font-secondary); /* Optional: use your secondary font */
+  font-family: var(--font-secondary);
   text-align: center;
   border: none;
   border-radius: 10px; /* Rounded edges */

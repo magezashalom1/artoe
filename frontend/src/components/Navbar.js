@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -29,7 +29,6 @@ const Navbar = () => {
                     <button className="hamburger" onClick={handleMenuToggle}>
                         <FaBars />
                     </button>
-                    <Link to="/cart"><FaShoppingCart /></Link>
                     <Link to="/signup" className="signup-button">Sign Up</Link>
                 </div>
             </div>

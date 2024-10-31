@@ -1,13 +1,19 @@
 :root {
   --color-primary: #000000; /* Primary color */
   --color-secondary: #ff036c; /* Secondary color */
-  --color-dark: #62656a; /* Dark color */
+  --color-dark: #333; /* Dark color */
   --color-white: #ffffff; /* White color */
   --color-light: rgba(255, 255, 255, 0.8); /* Light color */
+  --color-bg: #dddddd;
+  --color-text: #333;
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
   
   --width: 84%;
   --mobile-width: 92%;
 }
+
+
 
 /* General Styles */
 body {
@@ -94,7 +100,7 @@ p {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-secondary);
   color: var(--color-white);
 }
 
