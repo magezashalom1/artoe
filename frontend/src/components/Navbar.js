@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle, FaShoppingCart, FaBars } from 'react-icons/fa';
+import { FaShoppingCart, FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <div className="navbar-left">
                     <Link to="/" className="navbar-logo">
-                        <img src="/images/logo.png" alt="ArToe Logo" />
+                        <img src="/images/TextLogo.png" alt="ArToe Logo" />
                     </Link>
                 </div>
                 <div className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''}`}>
@@ -29,8 +29,8 @@ const Navbar = () => {
                     <button className="hamburger" onClick={handleMenuToggle}>
                         <FaBars />
                     </button>
-                    <Link to="/profile"><FaUserCircle /></Link>
                     <Link to="/cart"><FaShoppingCart /></Link>
+                    <Link to="/signup" className="signup-button">Sign Up</Link>
                 </div>
             </div>
         </nav>

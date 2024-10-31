@@ -2,14 +2,14 @@
 .navbar {
   position: fixed;
   top: 0;
-  width: calc(100% - 2rem); /* Adjust for margin */
-  height: 3rem; /* Fixed height */
-  background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
-  border-radius: 15px; /* Border radius on all sides */
-  margin: 1rem; /* Margin on all sides */
+  width: calc(100% - 2rem);
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  margin: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between items */
+  justify-content: center; /* Center content overall */
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-weight: bold;
@@ -21,93 +21,93 @@
   max-width: 1200px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space between logo and icons */
+  justify-content: space-between;
   padding: 0 1rem;
 }
 
 .navbar-left .navbar-logo img {
-  height: 2rem;
+  height: 1.5rem;
 }
 
+
 .navbar-menu {
-  display: flex; /* Flexbox for menu */
-  justify-content: flex-start; /* Align items to the left */
-  flex-grow: 1; /* Allow the menu to grow */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .navbar-menu ul {
   list-style: none;
   display: flex;
-  gap: 2rem; /* Spacing between items */
+  gap: 2rem;
 }
 
 .navbar-menu ul li a {
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
   color: black;
   font-size: 1rem;
-  padding-bottom: 0.25rem; /* This can be removed if not needed */
 }
 
 .navbar-menu ul li a:hover {
-  color: #ff036c; /* Change color on hover */
-}
-
-/* Active link color */
-.navbar-menu ul li a.active {
-  color: #ff036c; /* Active link color */
+  color: #ff036c;
 }
 
 .navbar-icons {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.2rem;
+  color: rgb(100, 100, 100);
   font-size: 1.5rem;
-  color: black;
-  margin-left: auto; /* Ensure icons are aligned to the right */
+}
+
+.signup-button {
+  background-color: #ff036c;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.signup-button:hover {
+  background-color: #e5005a;
 }
 
 /* Hamburger for Mobile */
 .hamburger {
-  display: none; /* Hide by default */
+  display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: black;
+  font-size: 1.2rem;
+  color: rgb(100, 100, 100);
 }
 
 @media (max-width: 768px) {
   .navbar-menu {
-      display: none; /* Hide the menu by default on mobile */
-      position: absolute;
-      top: 3.5rem; /* Position below navbar */
-      left: 0;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
-      z-index: 999; /* Ensure it appears on top */
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem; /* Spacing between items */
+    display: none;
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
   .navbar-menu.open {
-      display: flex; /* Show menu when open */
+    display: flex;
   }
 
   .hamburger {
-      display: block; /* Show hamburger icon on mobile */
+    display: block;
   }
 
   .navbar-icons {
-      display: none; /* Hide icons on mobile */
+    margin-left: auto;
   }
-}
-
-/* Navbar Sticky on Scroll */
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.navbar {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
