@@ -32,8 +32,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",         # Django REST Framework for API
-    "api",                    # Add your API app here
+    "rest_framework",  
+    "api",
+    'corsheaders', 
 ]
 
 MIDDLEWARE = [
