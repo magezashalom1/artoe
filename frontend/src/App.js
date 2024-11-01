@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage'; // Correct import path for HomePage
 import SneakerList from './components/SneakerList'; // Import SneakerList component
-import Products from './pages/Sneakers'; // Import Products page
+import Sneakers from './pages/Sneakers'; // Import Products page
 import AboutUs from './pages/AboutUs'; // Correct import path for AboutUs page
 import FAQs from './pages/FAQs'; // Import FAQs page
 import ContactUs from './pages/ContactUs'; // Correct import path for ContactUs page
