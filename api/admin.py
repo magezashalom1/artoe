@@ -31,6 +31,7 @@ class SneakerAdmin(admin.ModelAdmin):
         return ""
     main_image_preview.short_description = 'Main Image Preview'
 
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('customer_name', 'status', 'created_at', 'updated_at')  # Key details for each order

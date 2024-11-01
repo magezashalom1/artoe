@@ -1,26 +1,27 @@
+// src/App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage'; // Correct import path for HomePage
-import SneakerList from './components/SneakerList'; // Import SneakerList component
-import Sneakers from './pages/Sneakers'; // Import Products page
-import AboutUs from './pages/AboutUs'; // Correct import path for AboutUs page
-import FAQs from './pages/FAQs'; // Import FAQs page
-import ContactUs from './pages/ContactUs'; // Correct import path for ContactUs page
-import Navbar from './components/Navbar'; // Import Navbar component
-import './App.css'; // Import general styles
+import HomePage from './pages/HomePage';
+import SneakerList from './components/SneakerList';
+import Sneakers from './pages/Sneakers';
+import AboutUs from './pages/AboutUs';
+import FAQs from './pages/FAQs';
+import ContactUs from './pages/ContactUs';
+import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} /> {/* Render HomePage on the root path */}
-        <Route path="/sneakers" element={<SneakerList />} /> {/* Route for SneakerList */}
-        <Route path="/products" element={<Sneakers />} /> {/* Route for Products */}
-        <Route path="/about" element={<AboutUs />} /> {/* Route for AboutUs */}
-        <Route path="/faqs" element={<FAQs />} /> {/* Route for FAQs */}
-        <Route path="/contact" element={<ContactUs />} /> {/* Route for ContactUs */}
-        {/* Add other routes as needed */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/sneakers" element={<Sneakers />} />
+        <Route path="/sneaker-list" element={<SneakerList />} /> {/* Added route for SneakerList */}
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );
