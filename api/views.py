@@ -22,3 +22,7 @@ class OrderList(generics.ListCreateAPIView):
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+class LatestSneakersView(generics.ListAPIView):
+    queryset = Sneaker.objects.order_by('-id')[:10]  # Adjust to fetch the latest sneakers
+    serializer_class = SneakerSerializer

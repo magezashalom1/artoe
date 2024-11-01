@@ -1,18 +1,43 @@
 /* src/components/FeaturedSneakers.css */
+
 .featured-sneakers {
-    width: 100%;
-    margin: 30px 0;
-    text-align: center;
+    padding: 20px;
+    background-color: #4e0000; /* Adjust to match your site's styling */
+    border-radius: 8px;
+    margin-top: 20px; /* Space between header and featured section */
 }
 
 .sneaker-list {
     display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-    padding: 20px;
-    scrollbar-width: none; /* Firefox */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
 .sneaker-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.sneaker-card {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 200px; /* Adjust width as necessary */
+    margin-right: 20px; /* Space between cards */
+    text-align: center; /* Center the content */
+}
+
+.sneaker-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.add-to-cart {
+    background-color: #ff036c; /* Use your main button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #e60059; /* Darker shade for hover effect */
 }

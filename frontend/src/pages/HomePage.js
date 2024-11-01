@@ -1,5 +1,8 @@
+// src/pages/HomePage.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FeaturedSneakers from '../components/FeaturedSneakers'; // Adjust the path if necessary
 import './HomePage.css';
 
 const Homepage = () => {
@@ -15,10 +18,9 @@ const Homepage = () => {
                     <video src="/images/Comercial.mp4" autoPlay loop muted className="header-video" />
                 </div>
             </header>
+            <FeaturedSneakers /> {/* Add the FeaturedSneakers component here */}
         </div>
     );
 };
 
 export default Homepage;
-
-
