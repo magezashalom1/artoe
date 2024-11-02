@@ -1,4 +1,4 @@
-// Example for Products.js
+// Sneakers.js
 import React from 'react';
 
 const Sneakers = () => {
