@@ -11,6 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET_KEY is now required to be in .env with no fallback for production
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
 if not SECRET_KEY:
     raise ValueError("Missing DJANGO_SECRET_KEY in environment settings")
 
