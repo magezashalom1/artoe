@@ -26,9 +26,9 @@ const FeaturedSneakers = () => {
             <h2>Featured Sneakers</h2>
             <p>Check out our latest selections!</p>
             <div className="sneaker-list">
-                {Array.isArray(sneakers) ? ( // Check if sneakers is an array
+                {Array.isArray(sneakers) && sneakers.length > 0 ? ( // Check if sneakers is an array and has items
                     sneakers.map((sneaker) => {
-                        const imageURL = `${baseURL.replace(/^http:\/\//i, 'https://')}${sneaker.main_image}`;
+                        const imageURL = sneaker.main_image; // Assuming main_image is a relative path
                         return (
                             <div key={sneaker.id} className="sneaker-card">
                                 <img src={imageURL} alt={sneaker.name} className="sneaker-image" />
@@ -40,7 +40,7 @@ const FeaturedSneakers = () => {
                         );
                     })
                 ) : (
-                    <p>No sneakers available</p> // Fallback if sneakers is not an array
+                    <p>No sneakers available</p> // Fallback if sneakers is not an array or is empty
                 )}
             </div>
         </div>
