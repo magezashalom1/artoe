@@ -8,6 +8,7 @@ import Sneakers from './pages/Sneakers';
 import AboutUs from './pages/AboutUs';
 import FAQs from './pages/FAQs';
 import ContactUs from './pages/ContactUs';
+import SignUp from './pages/SignUp'; // Import SignUp
 import Navbar from './components/Navbar';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/signup" element={<SignUp />} /> {/* Added route for SignUp */}
       </Routes>
     </Router>
   );

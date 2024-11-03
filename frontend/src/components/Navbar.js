@@ -20,7 +20,7 @@ const Navbar = () => {
                 </div>
                 <div className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''}`}>
                     <ul>
-                        <li><Link to="/pages/Products">Sneakers</Link></li>
+                        <li><Link to="/pages/Sneakers">Sneakers</Link></li>
                         <li><Link to="/pages/AboutUs">About Us</Link></li>
                         <li><Link to="/pages/ContactUs">Contact</Link></li>
                     </ul>
