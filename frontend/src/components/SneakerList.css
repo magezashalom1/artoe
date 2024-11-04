@@ -1,3 +1,5 @@
+/* src/pages/SneakerList.css */
+
 .sneaker-list {
     padding: 20px; /* Space inside the list container */
     background-color: #f8f9fa; /* Light gray background */
@@ -10,31 +12,80 @@
     text-align: center; /* Center the heading */
     font-size: 2rem; /* Font size for the heading */
     color: #333; /* Dark gray color for the text */
+    margin-bottom: 20px; /* Add space below the title */
 }
 
-.sneaker-list ul {
-    list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Remove padding from the list */
+.sneaker-list .sneaker-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between sneakers */
 }
 
-.sneaker-list li {
-    background-color: #fff; /* White background for each sneaker item */
-    margin: 10px 0; /* Space between each item */
-    padding: 15px; /* Space inside each item */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for items */
+.sneaker-card {
+    background-color: #fff; /* White background for each sneaker card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    padding: 15px; /* Space inside each card */
     display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between item name and price */
-    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space items evenly */
+    height: 300px; /* Fixed height for uniformity */
 }
 
-.sneaker-list li:hover {
-    background-color: #e9ecef; /* Light gray on hover */
-    transform: scale(1.02); /* Slightly scale up on hover */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+.sneaker-image {
+    width: 100%; /* Full width of the card */
+    border-radius: 8px; /* Rounded corners for image */
 }
 
-.sneaker-list .price {
-    font-weight: bold; /* Make the price bold */
-    color: #007bff; /* Primary color for the price */
+.sneaker-info {
+    flex-grow: 1; /* Allow info to grow to take up space */
+    display: flex;
+    flex-direction: column; /* Stack info items vertically */
+    justify-content: space-between; /* Even space between elements */
+}
+
+.sneaker-info h3 {
+    font-size: 1.2rem; /* Size for sneaker name */
+    color: var(--color-primary); /* Primary color for text */
+    margin: 5px 0; /* Space above and below the name */
+}
+
+.sneaker-info p {
+    font-size: 0.9rem; /* Smaller font size for description */
+    color: var(--color-text); /* Text color */
+    margin: 5px 0; /* Space above and below description */
+}
+
+.add-to-cart-button {
+    background-color: var(--color-primary); /* Primary button color */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Button padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 10px; /* Space above button */
+}
+
+.add-to-cart-button:hover {
+    background-color: #e60059; /* Darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .sneaker-list h1 {
+        font-size: 1.5rem; /* Smaller font for heading on mobile */
+    }
+
+    .sneaker-card {
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+
+    .sneaker-info h3,
+    .sneaker-info p {
+        font-size: 0.8rem; /* Reduce text size for mobile */
+    }
+
+    .add-to-cart-button {
+        padding: 6px 12px; /* Smaller button padding */
+    }
 }
