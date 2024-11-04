@@ -2,11 +2,20 @@
 
 .sneakers-page {
     padding: 20px;
+    padding-top: 80px; /* Add space to prevent title from colliding with the navbar */
+    background-color: #f0f0f0; /* Light background for better contrast */
 }
 
 .sneakers-container {
-    max-width: 1200px; /* Max width for the sneakers list */
-    margin: auto; /* Center the container */
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.sneakers-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .search-input {
@@ -14,41 +23,107 @@
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 60%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #ff036c;
+    outline: none;
 }
 
 .sort-select {
     padding: 10px;
-    margin-bottom: 20px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .sneaker-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
-    gap: 20px; /* Space between sneakers */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Set min-width for flexible layout */
+    gap: 15px;
+    justify-content: center;
 }
 
+/* Sneaker Card Styling */
 .sneaker-card {
     background-color: white;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.sneaker-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .sneaker-image {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sneaker-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.sneaker-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
 }
 
 .add-to-cart {
-    background-color: #ff036c; /* Use your main button color */
+    background-color: #ff036c;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
+    font-size: 0.9rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .add-to-cart:hover {
-    background-color: #e60059; /* Darker shade for hover effect */
+    background-color: #e60059;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .sneaker-list {
+        grid-template-columns: repeat(2, 1fr); /* Force two columns on smallest screens */
+    }
+
+    .sneaker-card {
+        padding: 10px;
+        font-size: 0.9rem; /* Adjust text size */
+    }
+
+    .sneaker-image {
+        height: 150px; /* Smaller image height */
+    }
+
+    .sneaker-card h3 {
+        font-size: 1rem;
+    }
+
+    .sneaker-card p {
+        font-size: 0.8rem;
+    }
+
+    .add-to-cart {
+        padding: 8px 12px; /* Smaller button padding */
+        font-size: 0.85rem;
+    }
 }

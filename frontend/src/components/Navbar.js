@@ -1,3 +1,5 @@
+// src/components/Navbar.js
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
@@ -20,9 +22,9 @@ const Navbar = () => {
                 </div>
                 <div className={`navbar-menu ${isMobileMenuOpen ? 'open' : ''}`}>
                     <ul>
-                        <li><Link to="/pages/Sneakers">Sneakers</Link></li>
-                        <li><Link to="/pages/AboutUs">About Us</Link></li>
-                        <li><Link to="/pages/ContactUs">Contact</Link></li>
+                        <li><Link to="/sneakers">Sneakers</Link></li> {/* Updated path */}
+                        <li><Link to="/about">About Us</Link></li> {/* Updated path */}
+                        <li><Link to="/contact">Contact</Link></li> {/* Updated path */}
                     </ul>
                 </div>
                 <div className="navbar-icons">

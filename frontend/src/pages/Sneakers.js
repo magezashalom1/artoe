@@ -1,7 +1,7 @@
 // src/pages/Sneakers.js
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Navbar from '../components/Navbar'; // Adjust the path if necessary
 import './Sneakers.css'; // CSS file for styling
 
 const Sneakers = () => {
@@ -12,7 +12,7 @@ const Sneakers = () => {
     useEffect(() => {
         const fetchSneakers = async () => {
             try {
-                const response = await axios.get('/api/sneakers/'); // Update with your actual API endpoint
+                const response = await axios.get('/api/sneakers/');
                 setSneakers(response.data);
             } catch (error) {
                 console.error("Error fetching sneakers:", error);
@@ -22,22 +22,20 @@ const Sneakers = () => {
         fetchSneakers();
     }, []);
 
-    // Filter and sort sneakers based on search term and sort option
     const filteredSneakers = sneakers
         .filter(sneaker => sneaker.name.toLowerCase().includes(searchTerm.toLowerCase()))
         .sort((a, b) => {
             if (sortOption === 'price') {
                 return a.price - b.price;
             } else if (sortOption === 'recent') {
-                return new Date(b.created_at) - new Date(a.created_at); // Assuming 'created_at' field exists
+                return new Date(b.created_at) - new Date(a.created_at);
             } else {
-                return a.name.localeCompare(b.name); // Default sorting by name
+                return a.name.localeCompare(b.name);
             }
         });
 
     return (
         <div className="sneakers-page">
-            <Navbar />
             <div className="sneakers-container">
                 <h2>Our Sneakers</h2>
                 <input

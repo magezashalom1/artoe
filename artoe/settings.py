@@ -107,11 +107,11 @@ CORS_ALLOWED_ORIGINS = [
     "https://artoe.onrender.com",
     "https://artoe.store",
     "https://www.artoe.store",
-    "http://localhost:3001",  
+    "http://localhost:3001",  # Ensure this is present
     "http://localhost:3000", 
     "https://redesigned-barnacle-vjpp94w4jw62w4p-3001.app.github.dev",
-
 ] if not DEBUG else []
+
 
 CORS_ALLOW_METHODS = [
     "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS",

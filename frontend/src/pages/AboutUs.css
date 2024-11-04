@@ -1,0 +1,92 @@
+/* src/pages/AboutUs.css */
+
+.about-us-container {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.about-us-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+}
+
+.about-us-text {
+    flex: 1;
+    padding: 1rem;
+}
+
+.about-us-text h1 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.about-us-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-us-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-us-image img {
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-us-image img:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Add bounce effect when scrolling */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.about-us-image img {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .about-us-content {
+        flex-direction: column;
+    }
+
+    .about-us-image {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+
+    .about-us-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-us-text p {
+        font-size: 0.9rem;
+    }
+}
