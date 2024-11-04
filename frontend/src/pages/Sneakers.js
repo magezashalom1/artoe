@@ -1,6 +1,7 @@
 // src/pages/Sneakers.js
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import axios from 'axios';
 import './Sneakers.css'; // CSS file for styling
 
@@ -52,13 +53,13 @@ const Sneakers = () => {
                 </select>
                 <div className="sneaker-list">
                     {filteredSneakers.map((sneaker) => (
-                        <div key={sneaker.id} className="sneaker-card">
+                        <Link key={sneaker.id} to={`/sneakers/${sneaker.id}`} className="sneaker-card"> {/* Wrap card in Link */}
                             <img src={sneaker.main_image} alt={sneaker.name} className="sneaker-image" />
                             <h3>{sneaker.name}</h3>
                             <p>{sneaker.short_description}</p>
                             <p>${sneaker.price}</p>
                             <button className="add-to-cart">Add to Cart</button>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

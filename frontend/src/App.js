@@ -8,6 +8,7 @@ import AboutUs from './pages/AboutUs';
 import FAQs from './pages/FAQs';
 import ContactUs from './pages/ContactUs';
 import SignUp from './pages/SignUp'; // Import SignUp
+import EachSneaker from './pages/EachSneaker'; // Import EachSneaker
 import Navbar from './components/Navbar';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/sneakers/:id" element={<EachSneaker />} /> {/* Add route for EachSneaker */}
         {/* Removed SneakerList route if it's not linked in Navbar */}
       </Routes>
     </Router>

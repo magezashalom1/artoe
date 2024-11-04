@@ -1,57 +1,40 @@
+// src/components/Footer.js
+
 import React from 'react';
-import './Footer.css'; // You can create a separate CSS file for footer styles
+import './Footer.css'; // Import CSS file
 
 const Footer = () => {
     return (
-        <footer>
-            <div className="container">
-                <div className="f1">
-                    <div className="logo">
-                        <img src="./images/logo.png" alt="Logo" />
-                    </div>
-                    <h6>Sign Up for News and Promotions</h6>
-                    <br /><br />
-                    <div className="subscribe">
-                        <input type="email" placeholder="Enter Email" />
-                        <button><i className="uil uil-arrow-right"></i></button>
-                    </div>
-                </div>
-
-                <div className="f2">
-                    <h4>GO TO</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#why-choose-us">Our Team</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                    </ul>
-                </div>
-
-                <div className="f3">
-                    <h4>POLICIES</h4>
-                    <ul>
-                        <li><a href="/terms" target="_blank">Privacy Policy</a></li>
-                        <li><a href="/terms" target="_blank">Terms and Conditions</a></li>
-                        <li><a href="/terms" target="_blank">Refund Policy</a></li>
-                    </ul>
-                </div>
-
-                <div className="f4">
-                    <h4>Contact Us</h4>
-                    <p>
-                        +(250) 787 218 771<br /><br />
-                        artoe.store@gmail.com
+        <footer className="footer">
+            <div className="footer-container">
+                <div className="footer-logo">
+                    <img src="/path/to/your/logo.png" alt="ArToe Logo" /> {/* Replace with your logo path */}
+                    <p className="footer-description">
+                        Your go-to place for custom-painted sneakers. 
+                        Each pair tells a unique story.
                     </p>
-                    <ul className="socials">
-                        <li><a href="https://instagram/apple" target="_blank" rel="noopener noreferrer"><i className="uil uil-instagram-alt"></i></a></li>
-                        <li><a href="https://facebook/apple" target="_blank" rel="noopener noreferrer"><i className="uil uil-facebook"></i></a></li>
-                        <li><a href="https://twitter/apple" target="_blank" rel="noopener noreferrer"><i className="uil uil-twitter"></i></a></li>
+                </div>
+                <div className="footer-links">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/faqs">FAQs</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/signup">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div className="footer-social">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
-
-            <div className="copyright">
-                <small>&copy; ArToe - Customized Kicks. All Rights Reserved</small>
+            <div className="footer-bottom">
+                <p>&copy; {new Date().getFullYear()} ArToe. All rights reserved.</p>
             </div>
         </footer>
     );
