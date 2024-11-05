@@ -1,5 +1,4 @@
-/* SignUp.css */
-
+/* Main Container Styles */
 .signup-container {
     display: flex;
     justify-content: center;
@@ -7,140 +6,120 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-    color: #000;
-    font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
 
-
 .signup-content {
+    margin-top: 30px;
     display: flex;
-    flex-direction: row; /* Arrange elements in a row for larger screens */
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px; /* Maximum width for the container */
-    width: 100%; /* Full width */
+    width: 70%; /* Take 70% width of the viewport */
+    height: 70vh; /* Take 70% height of the viewport */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Signup Box and Image */
 .signup-box {
-    background-color: white; /* White background for the box */
-    border-radius: 20px; /* Rounded corners */
-    padding: 40px;
-    width: 100%; /* Full width */
-    max-width: 500px; /* Maximum width for the form */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: white;
+    padding: 20px;
+    width: 50%; /* Take 50% of the content container */
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
+.signup-image {
+    width: 50%; /* Take 50% of the content container */
+}
+
+.signup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 20px 20px 0; /* Rounded corners on the right side */
+}
+
+/* Typography and Form Styles */
 h2 {
-    margin-bottom: 10px; /* Spacing for title */
-    text-align: center; /* Center the title */
-    font-family: 'Montserrat', sans-serif; /* Font for the title */
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+p {
+    font-size: 0.9em;
+    text-align: center;
 }
 
 form {
     display: flex;
-    flex-direction: column; /* Stack form elements vertically */
+    flex-direction: column;
 }
 
 form div {
-    margin-bottom: 15px; /* Space between input fields */
+    margin-bottom: 10px;
 }
 
 label {
-    margin-bottom: 5px; /* Spacing for label */
+    font-size: 0.9em;
+    margin-bottom: 5px;
 }
 
 input {
-    padding: 10px;
-    border: 1px solid #ccc; /* Border for input fields */
-    border-radius: 5px; /* Rounded corners for input fields */
-    font-size: 16px; /* Font size for input fields */
-    width: 100%; /* Full width input */
-}
-
-input:focus {
-    border-color: #ff036c; /* Border color on focus */
-    outline: none; /* Remove default outline */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
 }
 
 button {
-    padding: 12px;
-    border: none; /* No border for buttons */
-    border-radius: 5px; /* Rounded corners for buttons */
-    background-color: #ff036c; /* Secondary color */
-    color: #fff; /* White text for buttons */
-    font-size: 16px; /* Button font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    margin-top: 10px; /* Space above the button */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff036c;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #e52b61; /* Darker shade on hover */
+    background-color: #e52b61;
 }
 
-.forgot-password {
-    text-align: right; /* Align forgot password link to the right */
-    margin-top: 5px; /* Space above the link */
-}
-
-.alternative {
-    text-align: center; /* Center the alternative text */
-    margin: 20px 0; /* Vertical margin */
-}
-
-.google-button {
-    background-color: white; /* White background for Google button */
-    border: 1px solid #ccc; /* Border for the button */
-    color: #000; /* Black text */
-    display: flex;
-    align-items: center; /* Center the icon and text */
-    justify-content: center; /* Center the icon and text */
-    padding: 10px;
-    border-radius: 5px; /* Rounded corners for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 100%; /* Full width */
-}
-
-.google-button img {
-    width: 20px; /* Adjust icon size */
-    margin-right: 5px; /* Space between icon and text */
-}
-
-.switch-auth {
-    text-align: center; /* Center the switch link */
-    margin-top: 20px; /* Space above the link */
-}
-
-.toggle-link {
-    color: #ff036c; /* Secondary color for the link */
-    font-weight: bold; /* Bold text */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Responsive styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .signup-content {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
+        flex-direction: column; /* Stack elements vertically */
+        width: 90%; /* Wider on small screens */
+        height: auto; /* Adjust height */
+    }
+
+    .signup-box {
+        width: 100%; /* Full width on small screens */
+        padding: 30px; /* Increase padding */
+        border-radius: 15px; /* Rounded corners */
+        margin: 0 auto; /* Center horizontally */
     }
 
     .signup-image {
-        display: none; /* Hide image on small screens */
+        display: none; /* Hide image on smaller screens */
     }
 }
 
 @media (max-width: 600px) {
     .signup-box {
-        padding: 20px; /* Less padding on small screens */
+        padding: 20px;
     }
 
     h2 {
-        font-size: 20px; /* Smaller title font size */
+        font-size: 18px; /* Adjust font size for smaller screens */
     }
 
     button {
-        font-size: 14px; /* Smaller button font size */
+        font-size: 14px; /* Adjust button font size */
     }
 }

@@ -1,10 +1,8 @@
-// src/pages/SignUp.js
-
 import React, { useState } from 'react';
-import './SignUp.css'; // Import the CSS for styling
+import './SignUp.css';
 
 const SignUp = () => {
-    const [isLogin, setIsLogin] = useState(false); // State to toggle between Sign Up and Login
+    const [isLogin, setIsLogin] = useState(false);
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -21,26 +19,23 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle sign-up or login logic here
         console.log('Form submitted:', formData);
     };
 
-    // Style object for the signup container
-    const signupContainerStyle = {
+    // Style for the background image
+    const backgroundStyle = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        backgroundImage: `url('./images/Pink.jpg')`, // Set your background image here
+        backgroundImage: `url(${process.env.PUBLIC_URL + '/images/Pink.jpg'})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        color: '#000',
-        fontFamily: 'Roboto, sans-serif',
         overflow: 'hidden',
     };
 
     return (
-        <div style={signupContainerStyle}>
+        <div className="signup-container" style={backgroundStyle}>
             <div className="signup-content">
                 <div className="signup-box">
                     <h2>{isLogin ? 'Log In' : 'Sign Up'}</h2>
@@ -99,11 +94,9 @@ const SignUp = () => {
                         </span>
                     </p>
                 </div>
-                {!isLogin && (
-                    <div className="signup-image">
-                        <img src="/images/Sign.jpg" alt="Sign Up" />
-                    </div>
-                )}
+                <div className="signup-image">
+                    <img src="/images/Sign.jpg" alt="Sign Up" />
+                </div>
             </div>
         </div>
     );
