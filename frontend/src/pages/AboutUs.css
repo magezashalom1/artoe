@@ -4,7 +4,7 @@
     background-color: #000;
     color: #fff;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stack content vertically */
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
@@ -19,6 +19,7 @@
     width: 100%;
     padding: 1rem;
     flex-direction: row;
+    margin-bottom: 2rem; /* Add space between content and footer */
 }
 
 .about-us-text {
@@ -69,6 +70,17 @@
 
 .about-us-image img {
     animation: bounce 2s infinite ease-in-out;
+}
+
+/* Footer styling */
+footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    background-color: #111;
+    text-align: center;
+    color: #fff;
 }
 
 /* Responsive layout for smaller screens */

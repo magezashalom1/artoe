@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './ContactUs.css'; // Import the CSS for styling
+import Footer from '../components/Footer'; // Import Footer
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -20,7 +21,6 @@ const ContactUs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle the form submission logic here, e.g., send data to your backend
         console.log('Contact Form submitted:', formData);
     };
 
@@ -30,32 +30,32 @@ const ContactUs = () => {
                 <h2>Contact Us</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="name">Name:</label>
                         <input
                             type="text"
                             id="name"
                             name="name"
+                            placeholder="Name"
                             value={formData.name}
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div>
-                        <label htmlFor="email">Email:</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
+                            placeholder="Email"
                             value={formData.email}
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div>
-                        <label htmlFor="message">Message:</label>
                         <textarea
                             id="message"
                             name="message"
+                            placeholder="Message"
                             value={formData.message}
                             onChange={handleChange}
                             required
@@ -64,6 +64,7 @@ const ContactUs = () => {
                     <button type="submit">Send Message</button>
                 </form>
             </div>
+            <Footer /> {/* Ensure Footer is placed outside the contact box */}
         </div>
     );
 };

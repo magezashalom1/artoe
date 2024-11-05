@@ -1,9 +1,11 @@
 // src/pages/Sneakers.js
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './Sneakers.css'; // CSS file for styling
+import './Sneakers.css';
+import Footer from '../components/Footer'; // Import Footer
+
 
 const Sneakers = () => {
     const [sneakers, setSneakers] = useState([]);
@@ -23,6 +25,7 @@ const Sneakers = () => {
         fetchSneakers();
     }, []);
 
+    // Apply search and sorting filters
     const filteredSneakers = sneakers
         .filter(sneaker => sneaker.name.toLowerCase().includes(searchTerm.toLowerCase()))
         .sort((a, b) => {
@@ -39,6 +42,8 @@ const Sneakers = () => {
         <div className="sneakers-page">
             <div className="sneakers-container">
                 <h2>Our Sneakers</h2>
+
+                {/* Search Input */}
                 <input
                     type="text"
                     placeholder="Search for sneakers..."
@@ -46,14 +51,18 @@ const Sneakers = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-input"
                 />
+
+                {/* Sort Dropdown */}
                 <select onChange={(e) => setSortOption(e.target.value)} className="sort-select">
                     <option value="name">Sort by Name</option>
                     <option value="price">Sort by Price</option>
                     <option value="recent">Sort by Recently Added</option>
                 </select>
+
+                {/* Sneakers List */}
                 <div className="sneaker-list">
                     {filteredSneakers.map((sneaker) => (
-                        <Link key={sneaker.id} to={`/sneakers/${sneaker.id}`} className="sneaker-card"> {/* Wrap card in Link */}
+                        <Link key={sneaker.id} to={`/sneakers/${sneaker.id}`} className="sneaker-card">
                             <img src={sneaker.main_image} alt={sneaker.name} className="sneaker-image" />
                             <h3>{sneaker.name}</h3>
                             <p>{sneaker.short_description}</p>
@@ -63,6 +72,7 @@ const Sneakers = () => {
                     ))}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

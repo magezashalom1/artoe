@@ -1,73 +1,55 @@
-/* src/components/Footer.css */
+.footer-logo img {
+  height: 2rem;
+  margin-right: 1rem;
+}
 
+/* Footer Styles */
 .footer {
-  background-color: #ffffff; /* Background color */
-  padding: 20px;
+  position: relative;
+  width: calc(100% - 2rem);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  box-sizing: border-box;
+  color: #000; /* Set to your primary text color */
+  font-family: 'Roboto', sans-serif; /* Use your primary font */
 }
 
 .footer-container {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
-.footer-logo {
+/* Individual footer sections */
+.footer-left, .footer-center, .footer-right {
   flex: 1;
-  max-width: 300px; /* Limit the width of the logo section */
+  padding: 1rem;
 }
 
-.footer-logo img {
-  max-width: 100%; /* Make logo responsive */
-  height: auto;
-}
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.footer-description {
-  margin-top: 10px;
-  font-size: 0.9em; /* Font size for description */
-  color: #333; /* Text color */
-}
+  .footer-left, .footer-center, .footer-right {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ccc; /* Divider line below each section */
+    padding: 1rem 0;
+  }
 
-.footer-links,
-.footer-social {
-  flex: 1; /* Allow these sections to grow equally */
-  margin-left: 20px; /* Space between columns */
-}
-
-.footer-links h3,
-.footer-social h3 {
-  margin-bottom: 10px;
-  font-size: 1.1em; /* Header size */
-  color: #ff036c; /* Customize header color */
-}
-
-.footer-links ul,
-.footer-social ul {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-}
-
-.footer-links li,
-.footer-social li {
-  margin-bottom: 5px; /* Space between links */
-}
-
-.footer-links a,
-.footer-social a {
-  text-decoration: none; /* Remove underline */
-  color: #333; /* Link color */
-  transition: color 0.3s ease; /* Smooth transition for hover */
-}
-
-.footer-links a:hover,
-.footer-social a:hover {
-  color: #ff036c; /* Change color on hover */
-}
-
-.footer-bottom {
-  margin-top: 20px;
-  text-align: center; /* Center the copyright text */
-  font-size: 0.8em; /* Smaller font size */
-  color: #666; /* Color for copyright text */
+  /* Remove the border for the last section */
+  .footer-right {
+    border-bottom: none;
+  }
 }

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './AboutUs.css';
+import Footer from '../components/Footer'; // Import Footer
 
 const AboutUs = () => {
     return (
@@ -21,6 +22,7 @@ const AboutUs = () => {
                     <img src="/images/Floating.png" alt="Floating Sneaker" />
                 </div>
             </div>
+            <Footer /> {/* Include the Footer here */}
         </div>
     );
 };

@@ -1,40 +1,37 @@
 // src/components/Footer.js
 
 import React from 'react';
-import './Footer.css'; // Import CSS file
+import { Link } from 'react-router-dom';
+import './Footer.css';
 
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-container">
-                <div className="footer-logo">
-                    <img src="/path/to/your/logo.png" alt="ArToe Logo" /> {/* Replace with your logo path */}
+                <div className="footer-section footer-left">
+                    <Link to="/" className="footer-logo">
+                        <img src="/images/logo.png" alt="Full Logo" />
+                    </Link>
                     <p className="footer-description">
-                        Your go-to place for custom-painted sneakers. 
-                        Each pair tells a unique story.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
                     </p>
                 </div>
-                <div className="footer-links">
-                    <h3>Links</h3>
+                <div className="footer-section footer-center">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/faqs">FAQs</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                        <li><a href="/signup">Sign Up</a></li>
+                        <li><Link to="/sneakers">Sneakers</Link></li>
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
-                <div className="footer-social">
+                <div className="footer-section footer-right">
                     <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <ul className="social-links">
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>
                     </ul>
                 </div>
-            </div>
-            <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} ArToe. All rights reserved.</p>
             </div>
         </footer>
     );

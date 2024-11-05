@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import './SignUp.css'; // Import the CSS for styling
+import Footer from '../components/Footer'; // Import Footer
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
