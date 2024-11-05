@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import './SignUp.css'; // Import the CSS for styling
-import SignUpImage from '../images/Sign.jpg'; // Ensure the image path is correct
 
 const SignUp = () => {
     const [isLogin, setIsLogin] = useState(false); // State to toggle between Sign Up and Login
@@ -26,8 +25,22 @@ const SignUp = () => {
         console.log('Form submitted:', formData);
     };
 
+    // Style object for the signup container
+    const signupContainerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        backgroundImage: `url('./images/Pink.jpg')`, // Set your background image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        color: '#000',
+        fontFamily: 'Roboto, sans-serif',
+        overflow: 'hidden',
+    };
+
     return (
-        <div className="signup-container">
+        <div style={signupContainerStyle}>
             <div className="signup-content">
                 <div className="signup-box">
                     <h2>{isLogin ? 'Log In' : 'Sign Up'}</h2>
@@ -70,14 +83,14 @@ const SignUp = () => {
                         </div>
                         {isLogin && (
                             <div className="forgot-password">
-                                <a href="#">Forgot Password?</a>
+                                <a href="#" onClick={(e) => e.preventDefault()}>Forgot Password?</a>
                             </div>
                         )}
                         <button type="submit">{isLogin ? 'Log In' : 'Sign Up'}</button>
                     </form>
                     <p className="alternative">Or continue with:</p>
                     <button className="google-button">
-                        <img src="../images/google-icon.png" alt="Google" /> Google
+                        <img src="/images/google-icon.png" alt="Google" /> Google
                     </button>
                     <p className="switch-auth">
                         {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
@@ -88,7 +101,7 @@ const SignUp = () => {
                 </div>
                 {!isLogin && (
                     <div className="signup-image">
-                        <img src={SignUpImage} alt="Sign Up" />
+                        <img src="/images/Sign.jpg" alt="Sign Up" />
                     </div>
                 )}
             </div>
