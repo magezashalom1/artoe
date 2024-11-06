@@ -123,3 +123,5 @@ webcolors==24.8.0
 webencodings==0.5.1
 websocket-client==1.8.0
 python-dotenv
+django-allauth==0.54.0
+python-social-auth==2.2.0

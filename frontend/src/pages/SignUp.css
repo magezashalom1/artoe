@@ -8,7 +8,7 @@
     background-position: center;
     overflow: hidden;
 }
-
+  
 .signup-content {
     margin-top: 30px;
     display: flex;
@@ -18,76 +18,115 @@
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
+  
 /* Signup Box and Image */
 .signup-box {
-    background-color: white;
+    background-color: var(--color-white); 
     padding: 20px;
-    width: 50%; /* Take 50% of the content container */
+    width: 50%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Center all elements */
 }
-
+  
 .signup-image {
-    width: 50%; /* Take 50% of the content container */
+    width: 50%; 
 }
-
+  
 .signup-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0 20px 20px 0; /* Rounded corners on the right side */
+    border-radius: 0 20px 20px 0; 
 }
-
+  
 /* Typography and Form Styles */
 h2 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-family: var(--font-secondary);
+    font-size: 2rem !important;
+    color: var(--color-primary);
 }
+
 
 p {
-    font-size: 0.9em;
+    font-size: 0.5rem;
     text-align: center;
+    font-family: var(--font-secondary); /* Using primary font */
+    color: var(--color-dark); /* Consistent with general text color */
 }
 
+  
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-
+  
 form div {
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Space between input fields */
 }
-
+  
 label {
-    font-size: 0.9em;
+    font-size: 0.5rem;
+    font-family: var(--font-secondary); /* Using primary font */
+    color: var(--color-secondary); /* Consistent primary color */
     margin-bottom: 5px;
 }
-
+  
 input {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 0.9em;
+    font-size: 1rem; /* Standardized font size */
+    font-family: var(--font-secondary); /* Using primary font */
+    width: 80%; 
+    margin: 5px auto; /* Centering horizontally */
+    display: block; /* Ensures it behaves as a block element */
 }
-
+  
+input:focus {
+    border-color: var(--color-secondary); /* Focus color */
+    outline: none;
+}
+  
 button {
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: #ff036c;
-    color: #fff;
-    font-size: 0.9em;
+    background-color: var(--color-secondary); /* Using secondary color */
+    color: var(--color-white);
+    font-size: 1rem; /* Standardized font size */
+    font-family: var(--font-secondary); /* Using primary font */
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s ease;
+    width: 70%; /* Match input width */
+    margin: 10px auto; /* Centering horizontally */
+    display: block; /* Ensures it behaves as a block element */
+}
+  
+button:hover {
+    background-color: #e52b61; /* Darker shade on hover */
 }
 
-button:hover {
-    background-color: #e52b61;
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 10px; /* Adds space between the button and the link */
+    text-align: center; /* Centers the link */
+}
+
+.forgot-password a {
+    color: var(--color-secondary); /* Use secondary color */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: color 0.3s ease; /* Smooth color transition */
+    font-size: 0.8rem; /* Adjust font size to match the form */
+}
+
+.forgot-password a:hover {
+    color: #e52b61; /* Optional: Change color slightly on hover */
 }
 
 /* Responsive Styles */
@@ -97,29 +136,71 @@ button:hover {
         width: 90%; /* Wider on small screens */
         height: auto; /* Adjust height */
     }
-
+  
     .signup-box {
         width: 100%; /* Full width on small screens */
         padding: 30px; /* Increase padding */
         border-radius: 15px; /* Rounded corners */
         margin: 0 auto; /* Center horizontally */
     }
-
+  
     .signup-image {
         display: none; /* Hide image on smaller screens */
     }
 }
-
+  
 @media (max-width: 600px) {
     .signup-box {
         padding: 20px;
     }
-
+  
     h2 {
-        font-size: 18px; /* Adjust font size for smaller screens */
+        font-size: 1.5rem; /* Smaller title font size */
     }
-
+  
     button {
-        font-size: 14px; /* Adjust button font size */
+        font-size: 1rem; /* Consistent button font size */
     }
+}
+
+/* Google Button Styles */
+.google-button {
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: center;
+    padding: 5px;
+    border: 1px solid rgb(158, 158, 158); /* Solid black border */
+    border-radius: 5px;
+    background-color: var(--color-white); /* White background to mimic Google style */
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-family: var(--font-secondary); /* Using secondary font */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 70%; /* Match input width */
+    margin: 10px auto; /* Centering horizontally */
+}
+
+.google-button:hover {
+    background-color: #f0f0f0; /* Slightly darker shade on hover */
+}
+
+.google-button img {
+    width: 20px; /* Adjust icon width */
+    height: 20px; /* Adjust icon height */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+
+/* Switch Auth Links (Log In / Sign Up) */
+.switch-auth .toggle-link {
+    color: var(--color-secondary); /* Use secondary color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.switch-auth .toggle-link:hover {
+    color: #e52b61; /* Optional: Change color slightly on hover */
 }

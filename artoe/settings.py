@@ -35,6 +35,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "api",
     "corsheaders",
+    "allauth",  # Add django-allauth
+    "allauth.account",  # Add the account app for login functionality
+    "allauth.socialaccount",  # Add the social account for Google login
+    "allauth.socialaccount.providers.google",  # Add Google as a provider
 ]
 
 MIDDLEWARE = [
@@ -47,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = "artoe.urls"
@@ -82,6 +87,20 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
+
+# Authentication Settings
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",  # Default Django auth backend
+    "allauth.account.auth_backends.AuthenticationBackend",  # Allauth backend for social login
+)
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_AUTHENTICATED_REMEMBER = True
+ACCOUNT_USERNAME_REQUIRED = False  # Use email for login instead of username
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_EMAIL_VERIFICATION = "mandatory"
+SOCIALACCOUNT_QUERY_EMAIL = True
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -120,3 +139,7 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = [
     "content-type", "authorization", "x-csrftoken", "accept", "origin", "user-agent",
 ]
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True

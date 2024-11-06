@@ -1,5 +1,3 @@
-// src/App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -22,9 +20,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />} /> {/* Remove Login and keep SignUp */}
         <Route path="/sneakers/:id" element={<EachSneaker />} /> {/* Add route for EachSneaker */}
-        {/* Removed SneakerList route if it's not linked in Navbar */}
       </Routes>
     </Router>
   );

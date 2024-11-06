@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Sneaker, Order, OrderItem
+from django.contrib.auth.models import User
 
 class SneakerSerializer(serializers.ModelSerializer):
     # Use URLs for image fields to make them accessible via API responses
@@ -32,3 +33,20 @@ class OrderSerializer(serializers.ModelSerializer):
             'id', 'customer_name', 'customer_email', 'address', 'status',
             'created_at', 'updated_at', 'items'
         ]
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            password=validated_data['password']
+        )
+        return user
+    
+

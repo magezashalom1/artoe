@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Sneaker, Order, OrderItem
 
+
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     extra = 1  # Allows adding a new OrderItem inline
@@ -51,3 +52,4 @@ class OrderItemAdmin(admin.ModelAdmin):
     list_filter = ('sneaker',)                                # Filter items by sneaker type
     search_fields = ('order__customer_name', 'sneaker__name') # Search by order customer or sneaker name
     readonly_fields = ('price',)                              # Price is fixed at order time
+

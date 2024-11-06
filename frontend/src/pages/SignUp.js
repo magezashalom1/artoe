@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Changed to useNavigate
 import './SignUp.css';
 
 const SignUp = () => {
@@ -9,6 +10,8 @@ const SignUp = () => {
         password: '',
     });
 
+    const navigate = useNavigate();  // Initialize navigate for redirection
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -17,12 +20,24 @@ const SignUp = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        // Send the form data to your Django API to create a new user
+        const response = await fetch('http://your-django-api-url/signup/', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            // Redirect to the login page after successful signup
+            navigate('/login');  // Redirect to login using useNavigate
+        } else {
+            console.log('Signup failed');
+            // Handle errors here
+        }
     };
 
-    // Style for the background image
     const backgroundStyle = {
         display: 'flex',
         justifyContent: 'center',
@@ -43,11 +58,11 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit}>
                         {!isLogin && (
                             <div>
-                                <label htmlFor="username">Username:</label>
                                 <input
                                     type="text"
                                     id="username"
                                     name="username"
+                                    placeholder="Username"
                                     value={formData.username}
                                     onChange={handleChange}
                                     required={!isLogin}
@@ -55,22 +70,22 @@ const SignUp = () => {
                             </div>
                         )}
                         <div>
-                            <label htmlFor="email">Email:</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
+                                placeholder="Email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div>
-                            <label htmlFor="password">Password:</label>
                             <input
                                 type="password"
                                 id="password"
                                 name="password"
+                                placeholder="Password"
                                 value={formData.password}
                                 onChange={handleChange}
                                 required
@@ -78,17 +93,21 @@ const SignUp = () => {
                         </div>
                         {isLogin && (
                             <div className="forgot-password">
-                                <a href="#" onClick={(e) => e.preventDefault()}>Forgot Password?</a>
+                                <a href="#" onClick={(e) => e.preventDefault()}>
+                                    Forgot Password?
+                                </a>
                             </div>
                         )}
                         <button type="submit">{isLogin ? 'Log In' : 'Sign Up'}</button>
                     </form>
                     <p className="alternative">Or continue with:</p>
                     <button className="google-button">
-                        <img src="/images/google-icon.png" alt="Google" /> Google
+                        <img src="/images/Google.png" alt="Google" /> Google
                     </button>
                     <p className="switch-auth">
-                        {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
+                        {isLogin
+                            ? "Don't have an account?"
+                            : 'Already have an account?'}{' '}
                         <span onClick={() => setIsLogin(!isLogin)} className="toggle-link">
                             {isLogin ? 'Sign Up' : 'Log In'}
                         </span>
