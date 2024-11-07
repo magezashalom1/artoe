@@ -1,22 +1,25 @@
-# Django settings for ArToe project.
+# settings.py
 
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import dj_database_url
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY is now required to be in .env with no fallback for production
+# SECURITY WARNING: Keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 if not SECRET_KEY:
     raise ValueError("Missing DJANGO_SECRET_KEY in environment settings")
 
+# SECURITY WARNING: Don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
+# Allowed Hosts
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -25,6 +28,7 @@ ALLOWED_HOSTS = [
     'artoe.onrender.com',
 ]
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -35,10 +39,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "api",
     "corsheaders",
-    "allauth",  # Add django-allauth
-    "allauth.account",  # Add the account app for login functionality
-    "allauth.socialaccount",  # Add the social account for Google login
-    "allauth.socialaccount.providers.google",  # Add Google as a provider
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
 ]
 
 MIDDLEWARE = [
@@ -51,7 +55,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = "artoe.urls"
@@ -59,7 +62,7 @@ ROOT_URLCONF = "artoe.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "staticfiles/build"],
+        "DIRS": [BASE_DIR / "frontend/build"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -74,11 +77,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "artoe.wsgi.application"
 
+# Database configuration
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",  # Use PostgreSQL for production
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -88,19 +89,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-# Authentication Settings
 AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",  # Default Django auth backend
-    "allauth.account.auth_backends.AuthenticationBackend",  # Allauth backend for social login
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
+# Allauth settings
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-ACCOUNT_AUTHENTICATED_REMEMBER = True
-ACCOUNT_USERNAME_REQUIRED = False  # Use email for login instead of username
-SOCIALACCOUNT_EMAIL_REQUIRED = True
-SOCIALACCOUNT_EMAIL_VERIFICATION = "mandatory"
-SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
@@ -108,38 +105,24 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "staticfiles/build/static"]
+STATICFILES_DIRS = [BASE_DIR / "frontend/build/static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all only in development
+CORS_ALLOW_ALL_ORIGINS = DEBUG
 
-CORS_ALLOWED_ORIGINS = [
-    "https://artoe.onrender.com",
-    "https://artoe.store",
-    "https://www.artoe.store",
-    "http://localhost:3001",  # Ensure this is present
-    "http://localhost:3000", 
-    "https://redesigned-barnacle-vjpp94w4jw62w4p-3001.app.github.dev",
-] if not DEBUG else []
+if not DEBUG:
+    CORS_ALLOWED_ORIGINS = [
+        "https://artoe.onrender.com",
+        "https://artoe.store",
+        "https://www.artoe.store",
+    ]
 
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+CORS_ALLOW_HEADERS = ["content-type", "authorization", "x-csrftoken", "accept", "origin", "user-agent"]
 
-CORS_ALLOW_METHODS = [
-    "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS",
-]
-
-CORS_ALLOW_HEADERS = [
-    "content-type", "authorization", "x-csrftoken", "accept", "origin", "user-agent",
-]
-
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

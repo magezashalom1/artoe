@@ -5,7 +5,7 @@ services:
     env: python
     plan: starter
     buildCommand: |
-      rm -rf $HOME/.cache/pypoetry $HOME/.poetry
+      source venv/bin/activate
       pip install -r requirements.txt
       npm install --prefix frontend
       npm run build --prefix frontend
@@ -16,5 +16,7 @@ services:
     startCommand: |
       source venv/bin/activate && \
       gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
-
- 
+databases:
+  - name: artoe-db
+    envVar: DATABASE_URL
+    postgresVersion: "14"
