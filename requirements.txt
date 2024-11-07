@@ -7,3 +7,4 @@ requests==2.32.3
 python-dotenv==1.0.1
 django-allauth==0.54.0
 djangorestframework==3.14.0  # Only if needed for API views
+dj-database-url

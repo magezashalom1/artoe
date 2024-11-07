@@ -4,6 +4,9 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import dj_database_url
+from dj_database_url import parse as db_url
+
+
 
 # Load environment variables
 load_dotenv()
@@ -77,9 +80,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "artoe.wsgi.application"
 
-# Database configuration
+
 DATABASES = {
-    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': db_url(os.environ.get('DATABASE_URL'))
 }
 
 AUTH_PASSWORD_VALIDATORS = [
