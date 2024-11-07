@@ -46,6 +46,7 @@ class SignupView(APIView):
             return Response({'message': 'User created successfully'}, status=201)
         return Response(serializer.errors, status=400)
 
+
 class LoginView(APIView):
     permission_classes = [AllowAny]
 

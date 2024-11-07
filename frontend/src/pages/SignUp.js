@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';  // Changed to useNavigate
+import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
 const SignUp = () => {
@@ -10,7 +10,7 @@ const SignUp = () => {
         password: '',
     });
 
-    const navigate = useNavigate();  // Initialize navigate for redirection
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,19 +22,23 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Send the form data to your Django API to create a new user
-        const response = await fetch('http://your-django-api-url/signup/', {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: { 'Content-Type': 'application/json' },
-        });
+        try {
+            const response = await fetch('https://artoe.onrender.com/signup/', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: { 'Content-Type': 'application/json' },
+            });
 
-        if (response.ok) {
-            // Redirect to the login page after successful signup
-            navigate('/login');  // Redirect to login using useNavigate
-        } else {
-            console.log('Signup failed');
-            // Handle errors here
+            if (response.ok) {
+                // Redirect to the homepage after successful signup
+                navigate('/');
+                setIsLogin(true);  // Update login status if needed
+            } else {
+                console.log('Signup failed');
+                // Handle errors here
+            }
+        } catch (error) {
+            console.error('Error during signup:', error);
         }
     };
 
