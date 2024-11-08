@@ -19,10 +19,7 @@ services:
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      source venv/bin/activate  # Activate the virtual environment
-      pip list  # Log installed Python packages at runtime
-      which gunicorn  # Verify gunicorn binary location again
-      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the app
+      export PATH="$PWD/venv/bin:$PATH" && gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the app
     envVars:
       - key: DATABASE_URL
         value: postgresql://artoedb_user:F8gasXrRludTq5hz9N8KZippVp0vPwuW@dpg-csml2te8ii6s739l5cv0-a.oregon-postgres.render.com/artoedb
