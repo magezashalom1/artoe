@@ -5,7 +5,9 @@ services:
     env: python
     plan: starter
     buildCommand: |
+      pip install gunicorn  # Ensure gunicorn is installed
       pip install -r requirements.txt
+      pip freeze  # Output installed packages to the build logs for debugging
       npm install --prefix frontend
       npm run build --prefix frontend
       python manage.py collectstatic --noinput
