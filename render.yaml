@@ -5,9 +5,11 @@ services:
     env: python
     plan: starter
     buildCommand: |
-      pip install gunicorn  # Ensure gunicorn is installed
+      python -m venv venv  # Create virtual environment
+      source venv/bin/activate  # Activate virtual environment
       pip install -r requirements.txt
-      pip freeze  # Output installed packages to the build logs for debugging
+      pip list  # List installed Python packages
+      which gunicorn  # Check gunicorn location
       npm install --prefix frontend
       npm run build --prefix frontend
       python manage.py collectstatic --noinput
