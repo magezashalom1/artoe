@@ -5,19 +5,14 @@ services:
     env: python
     plan: starter
     buildCommand: |
-      # Install Python dependencies
       pip install -r requirements.txt
-      # Install frontend (React) dependencies and build
       npm install --prefix frontend
       npm run build --prefix frontend
-      # Collect static files for Django
       python manage.py collectstatic --noinput
-      # Run Django migrations
       python manage.py migrate
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      # Start the Django app using Gunicorn
       gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
     envVars:
       - key: DATABASE_URL
