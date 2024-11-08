@@ -5,7 +5,6 @@ services:
     env: python
     plan: starter
     buildCommand: |
-      source venv/bin/activate
       pip install -r requirements.txt
       npm install --prefix frontend
       npm run build --prefix frontend
@@ -14,7 +13,6 @@ services:
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      source venv/bin/activate && \
       gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
     envVars:
       - key: DATABASE_URL
