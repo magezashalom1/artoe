@@ -5,24 +5,26 @@ services:
     env: python
     plan: starter
     buildCommand: |
-      python -m venv venv  # Create virtual environment
-      source venv/bin/activate  # Activate virtual environment
-      pip install --upgrade pip  # Ensure pip is up-to-date
-      pip install gunicorn  # Explicitly install gunicorn globally
-      pip install -r requirements.txt  # Install dependencies
-      which gunicorn  # Check gunicorn location (logs its path)
+      python -m venv venv  # Create a virtual environment
+      source venv/bin/activate  # Activate the virtual environment
+      pip install --upgrade pip setuptools wheel  # Upgrade essential tools
+      pip install -r requirements.txt  # Install all dependencies
+      pip install gunicorn  # Ensure gunicorn is installed explicitly
+      pip list  # List installed Python packages
+      which gunicorn  # Log the gunicorn binary location
       npm install --prefix frontend  # Install frontend dependencies
-      npm run build --prefix frontend  # Build frontend assets
+      npm run build --prefix frontend  # Build frontend
       python manage.py collectstatic --noinput  # Collect static files
-      python manage.py migrate  # Apply database migrations
+      python manage.py migrate  # Apply migrations
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      source venv/bin/activate  # Activate virtual environment again before starting the app
-      which gunicorn  # Ensure gunicorn is accessible in runtime
-      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the Django app
+      source venv/bin/activate  # Activate the virtual environment
+      pip list  # Log installed Python packages at runtime
+      which gunicorn  # Verify gunicorn binary location again
+      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the app
     envVars:
       - key: DATABASE_URL
         value: postgresql://artoedb_user:F8gasXrRludTq5hz9N8KZippVp0vPwuW@dpg-csml2te8ii6s739l5cv0-a.oregon-postgres.render.com/artoedb
-      - key: POETRY_DISABLED  # Disable Poetry to prevent conflicts
+      - key: POETRY_DISABLED
         value: "true"
