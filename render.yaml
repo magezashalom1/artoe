@@ -7,17 +7,21 @@ services:
     buildCommand: |
       python -m venv venv  # Create virtual environment
       source venv/bin/activate  # Activate virtual environment
-      pip install -r requirements.txt
-      pip list  # List installed Python packages
-      which gunicorn  # Check gunicorn location
-      npm install --prefix frontend
-      npm run build --prefix frontend
-      python manage.py collectstatic --noinput
-      python manage.py migrate
+      pip install --upgrade pip  # Ensure pip is up-to-date
+      pip install -r requirements.txt  # Install dependencies
+      pip list  # List installed Python packages to verify gunicorn installation
+      which gunicorn  # Check gunicorn location to verify installation
+      npm install --prefix frontend  # Install frontend dependencies
+      npm run build --prefix frontend  # Build frontend assets
+      python manage.py collectstatic --noinput  # Collect static files
+      python manage.py migrate  # Apply database migrations
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000
+      source venv/bin/activate  # Activate virtual environment again before starting the app
+      gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the Django app with gunicorn
     envVars:
       - key: DATABASE_URL
         value: postgresql://artoedb_user:F8gasXrRludTq5hz9N8KZippVp0vPwuW@dpg-csml2te8ii6s739l5cv0-a.oregon-postgres.render.com/artoedb
+      - key: POETRY_DISABLED  # Disable Poetry to prevent conflicts
+        value: "true"
