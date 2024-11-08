@@ -10,8 +10,6 @@ services:
       pip install --upgrade pip setuptools wheel  # Upgrade essential tools
       pip install -r requirements.txt  # Install all dependencies
       pip install gunicorn  # Ensure gunicorn is installed explicitly
-      pip list  # List installed Python packages
-      which gunicorn  # Log the gunicorn binary location
       npm install --prefix frontend  # Install frontend dependencies
       npm run build --prefix frontend  # Build frontend
       python manage.py collectstatic --noinput  # Collect static files
@@ -19,7 +17,7 @@ services:
     runtime: python
     pythonVersion: "3.11"
     startCommand: |
-      export PATH="$PWD/venv/bin:$PATH" && gunicorn artoe.wsgi:application --bind 0.0.0.0:8000  # Start the app
+      export PATH="$PWD/venv/bin:$PATH" && gunicorn artoe.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         value: postgresql://artoedb_user:F8gasXrRludTq5hz9N8KZippVp0vPwuW@dpg-csml2te8ii6s739l5cv0-a.oregon-postgres.render.com/artoedb
