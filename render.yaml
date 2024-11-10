@@ -15,7 +15,6 @@ services:
       python manage.py collectstatic --noinput  # Collect static files
       python manage.py migrate  # Apply migrations
     runtime: python
-    pythonVersion: "3.11"
     startCommand: |
       source venv/bin/activate  # Activate the virtual environment
       gunicorn artoe.wsgi:application --bind 0.0.0.0:$PORT  # Bind gunicorn to the $PORT
